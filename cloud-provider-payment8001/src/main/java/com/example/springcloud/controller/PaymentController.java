@@ -30,7 +30,7 @@ public class PaymentController {
         if(result>0){
             return  new CommonResult(200,"数据库插入成功 port:"+serverPort,result);
         }else{
-            return new CommonResult(444,"创建分支，插入数据库失败 port:"+serverPort,null);
+            return new CommonResult(444,"分支添加，插入数据库失败 port:"+serverPort,null);
         }
     }
     @GetMapping(value ="/payment/get/{id}")
