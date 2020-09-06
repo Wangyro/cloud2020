@@ -49,7 +49,7 @@ public class OrderController {
         if (forEntity.getStatusCode().is2xxSuccessful()) {
             return forEntity.getBody();
         } else {
-            return new CommonResult<>(444, "操作失败");
+            return new CommonResult<>(444, "操作失败，更新1");
         }
     }
     @GetMapping(value = "/consumer/payment/lb")
