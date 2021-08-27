@@ -17,11 +17,11 @@ public class MyLB implements LoadBlancer {
     public final int getAndIncrement(){
         int current;
         int next;
-        do{
+        do{   //自旋锁
             current=this.atomicInteger.get();
-            next=current>=Integer.MAX_VALUE?0:current+1;
+            next=current>=Integer.MAX_VALUE ? 0 : current+1;
         }while(!this.atomicInteger.compareAndSet(current,next));
-        System.out.println("*******next:"+next);
+            System.out.println("*******next:"+next);
         return next;
     }
 

@@ -3,8 +3,10 @@ package com.example.springcloud.service;
 
 import com.example.springcloud.dao.PaymentDao;
 import com.example.springcloud.entities.Payment;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author Wang Yuran
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PaymentServiceImpl implements PaymentService {
-    @Autowired
+    @Resource
     private PaymentDao paymentDao;
 
     public int create(Payment payment)

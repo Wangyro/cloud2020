@@ -26,8 +26,13 @@ import java.util.List;
 @Slf4j
 public class OrderController {
     //public static  final String PAYMENT_URL="http://localhost:8001";
-    public static  final String PAYMENT_URL="http://CLOUD-PAYMENT-SERVICE";
+   public static  final String PAYMENT_URL="http://CLOUD-PAYMENT-SERVICE";
 
+
+    /**
+     * RestTemplated提供了多种便捷的访问远程的Http服务的方法
+     * 是一种简单便捷的访问restful服务模板类，是spring 提供用于访问Rest的客户端模板工具类
+     */
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
@@ -35,6 +40,7 @@ public class OrderController {
 
     @Autowired
     private LoadBlancer lB;
+
     @PostMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
         return restTemplate.postForObject(PAYMENT_URL+"/payment/create",payment,CommonResult.class);
@@ -46,6 +52,7 @@ public class OrderController {
     @GetMapping("/consumer/payment/getForEntity/{id}")
     public CommonResult<Payment> getPayment2(@PathVariable("id")Long id) {
         ResponseEntity<CommonResult> forEntity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
+        log.info(String.valueOf(forEntity.getStatusCodeValue()));
         if (forEntity.getStatusCode().is2xxSuccessful()) {
             return forEntity.getBody();
         } else {
