@@ -3,6 +3,7 @@ package com.example.springcloud.controller;
 import com.example.springcloud.entities.CommonResult;
 import com.example.springcloud.entities.Payment;
 import com.example.springcloud.service.PaymentService;
+import com.example.springcloud.util.IdGeneratorSnowflake;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class PaymentController {
 
     @Resource
     private DiscoveryClient discoveryClient;
+    @Resource
+    private IdGeneratorSnowflake idGeneratorSnowflake;
 
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment){
@@ -68,5 +71,10 @@ public class PaymentController {
 
         }
         return discoveryClient;
+    }
+    @GetMapping(value="/snowflake")
+    public long snowFlake(){
+
+        return idGeneratorSnowflake.snowflakeId();
     }
 }
