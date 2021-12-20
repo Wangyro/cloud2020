@@ -11,10 +11,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommonResult<T> {
+public class CommonResult<T> {  //公共结果返回类
     private Integer code;
+
     private String message;
+
     private  T data;
+
     public CommonResult(Integer code, String message){
         this(code,message,null);
     }
