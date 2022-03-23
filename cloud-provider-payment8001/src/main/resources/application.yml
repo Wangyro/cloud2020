@@ -12,6 +12,7 @@ spring:
     password: root
 
 
+
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.example.springcloud.entities

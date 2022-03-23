@@ -26,11 +26,4 @@ public class PaymentServiceImpl implements PaymentService {
     {
         return paymentDao.getPaymentById(id);
     }
-
-    @Override
-    public int div(int x, int y) {
-        int result=x/y;
-        System.out.println("    ==========PaymentServiceImpl被调用了，计算结果是："+result);
-        return result;
-    }
 }
