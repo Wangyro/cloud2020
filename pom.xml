@@ -40,6 +40,7 @@
       <module>java-text-exmaple</module>
       <module>cloud-springboot-redis01</module>
     <module>cloud-springboot-redis02</module>
+    <module>cloud-flowable</module>
   </modules>
 
 
