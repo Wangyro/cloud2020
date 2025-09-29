@@ -3,7 +3,6 @@ package com.example.springcloud.service;
 
 import com.example.springcloud.dao.PaymentDao;
 import com.example.springcloud.entities.Payment;
-import com.example.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,5 +31,10 @@ public class PaymentServiceImpl implements PaymentService {
         int result=x/y;
         System.out.println("    ==========PaymentServiceImpl被调用了，计算结果是："+result);
         return result;
+    }
+
+    @Override
+    public int updateImagePath(Long id, String imagePath) {
+        return paymentDao.updateImagePath(id, imagePath);
     }
 }

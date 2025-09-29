@@ -15,4 +15,6 @@ public interface PaymentDao
     public int create(Payment payment);
 
     public Payment getPaymentById(@Param("id") Long id);
+
+    public int updateImagePath(@Param("id") Long id, @Param("imagePath") String imagePath);
 }

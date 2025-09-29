@@ -14,5 +14,7 @@ public interface PaymentService
     public Payment getPaymentById(@Param("id") Long id);
 
     public int div(int x,int y);
+
+    int updateImagePath(Long id, String imagePath);
 }
 

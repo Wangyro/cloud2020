@@ -4,17 +4,22 @@
 <mapper namespace="com.example.springcloud.dao.PaymentDao">
 
     <insert id="create" parameterType="Payment" useGeneratedKeys="true" keyProperty="id">
-        insert into payment(serial)  values(#{serial});
+        insert into payment(serial, image_path)  values(#{serial}, #{imagePath});
     </insert>
 
 
     <resultMap id="BaseResultMap" type="com.example.springcloud.entities.Payment">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <id column="serial" property="serial" jdbcType="VARCHAR"/>
+        <id column="image_path" property="imagePath" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getPaymentById" parameterType="Long" resultMap="BaseResultMap">
         select * from payment where id=#{id};
     </select>
+
+    <update id="updateImagePath">
+        update payment set image_path=#{imagePath} where id=#{id}
+    </update>
 
 </mapper>
 
